@@ -1,0 +1,59 @@
+<resources>
+    <!--main activity strings-->
+    <string name="app_name">lg!!</string>
+    <string name="car_logo">carlogo</string>
+    <string name="caption">Vehicle Rental and Hosting App"</string>
+    <string name="app_Name">Let\'s go!!</string>
+
+
+    <!--login strings-->
+    <string name="login">Login</string>
+    <string name="lPhoneNumber">Phone Number</string>
+    <string name="lPassword">Password</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="forget_pwd">Forgot Password?!</string>
+    <string name="lSignup">New User?? Sign Up!!</string>
+
+
+    <!--SignUp module strings-->
+    <string name="sign_up">SignUp</string>
+    <string name="FullName">Enter Full Name</string>
+    <string name="adhaar">Enter Adhaar Number</string>
+    <string name="su_l">Enter License Number</string>
+    <string name="su_pan">Enter PAN Number</string>
+    <string name="next">NEXT</string>
+
+    <!--SignUp1 module strings-->
+
+    <string name="su_m">Enter Mail id</string>
+    <string name="female">Female</string>
+    <string name="Gender">Gender</string>
+    <string name="Male">Male</string>
+    <string name="Other">Other</string>
+    <string name="age">Select Your Age</string>
+    <!--SignUp2 module strings-->
+
+
+    <string name="getl">Get Location</string>
+    <!--SignUp3 module strings-->
+    <string name="S2_PN">Enter Phone Number</string>
+    <string name="S2_Pwd">Enter Password</string>
+    <string name="S2_CP">Confirm Password</string>
+    <string name="SU">Sign Up</string>
+    <string name="SU_CITY">Enter location</string>
+    <string name="logout">LogOut</string>
+    <string name="host">Host</string>
+    <string name="home">Home</string>
+
+    <!--Home module strings-->
+    <string name="navi_Open">Open navigation drawer</string>
+    <string name="navi_Close">Close navigation drawer</string>
+    <string name="welcome">Welcome!!</string>
+    <string name="rent">RENT</string>
+    <string name="owner">Owner</string>
+    <string name="maple">maple</string>
+    <string name="phone_no">phone no</string>
+    <string name="_59532535">59532535</string>
+
+
+</resources>
