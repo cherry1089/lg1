@@ -111,21 +111,7 @@ public class home extends AppCompatActivity {
         startActivity(intent,options.toBundle());
     }
 
-    public void callHostHistory(View view) {
-        Intent intent =new Intent(getApplicationContext(),hostinghistory.class);
-        Pair[] pairs =new Pair[1];
-        pairs[0]=new Pair<View,String>(findViewById(R.id.hb),"tohostinghistory");
-        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(home.this,pairs);
-        startActivity(intent,options.toBundle());
-    }
-    public void callRentHistory(View view) {
-        Intent intent =new Intent(getApplicationContext(),rentinghistory.class);
-        Pair[] pairs =new Pair[1];
-        pairs[0]=new Pair<View,String>(findViewById(R.id.hb),"torentinghistory");
-        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(home.this,pairs);
-        startActivity(intent,options.toBundle());
 
-    }
 
 
 

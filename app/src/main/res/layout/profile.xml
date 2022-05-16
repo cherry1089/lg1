@@ -11,22 +11,44 @@
     android:backgroundTintMode="src_atop"
 
     >
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            android:fontFamily="@font/chewy"
+            android:onClick="callRentHistory"
+            android:text="Renting history"
+            android:textColor="#D8D4D4"
+            android:textSize="20dp"
+             />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            android:fontFamily="@font/chewy"
+            android:onClick="callHostHistory"
+            android:text="Hosting history"
+            android:textColor="#D8D4D4"
+            android:textSize="20dp"
+            android:transitionName="tohostinghistory"
+            />
 
         <Button
             android:id="@+id/logout_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="327dp"
-            android:layout_marginBottom="348dp"
             android:backgroundTint="@color/white"
             android:fontFamily="@font/bungee"
             android:onClick="call_Logout"
             android:text="@string/logout"
             android:textColor="@color/black"
             android:transitionName="logout"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            tools:ignore="MissingConstraints" />
+       </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

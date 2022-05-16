@@ -2,8 +2,11 @@ package com.example.lg;
 
 import static java.lang.String.*;
 
+import android.app.ActivityOptions;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,12 +50,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         // Glide.with(context).load(hostedV.image).into(holder.image);
 
          holder.fairPerHour.setText(String.valueOf(hostedV.fairPerHour));
-//holder.fairPerHour.setText(hostedV.fairPerHour);
       holder.seater.setText(String.valueOf(hostedV.seater));
         holder.username.setText(hostedV.username);
        holder.pnumber.setText(String.valueOf(hostedV.pnumber));
-       // holder.pnumber.setText(hostedV.pnumber);
-       // holder.seater.setText(hostedV.seater);
+
 
     }
 
@@ -81,7 +82,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
            bi.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View view) {
-                   
+
                }
            });
        }

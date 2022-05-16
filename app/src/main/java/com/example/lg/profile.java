@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.util.Pair;
 import android.view.View;
 import android.view.WindowManager;
@@ -29,5 +30,20 @@ public class profile extends AppCompatActivity {
         pairs[0]=new Pair<View,String>(findViewById(R.id.logout_button),"logout");
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(profile.this,pairs);
         startActivity(intent,options.toBundle());
+    }
+    public void callHostHistory(View view) {
+        Intent intent =new Intent(getApplicationContext(),hostinghistory.class);
+        Pair[] pairs =new Pair[1];
+        pairs[0]=new Pair<View,String>(findViewById(R.id.hb),"tohostinghistory");
+        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(profile.this,pairs);
+        startActivity(intent,options.toBundle());
+    }
+    public void callRentHistory(View view) {
+        Intent intent =new Intent(getApplicationContext(),rentinghistory.class);
+        Pair[] pairs =new Pair[1];
+        pairs[0]=new Pair<View,String>(findViewById(R.id.hb),"torentinghistory");
+        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(profile.this,pairs);
+        startActivity(intent,options.toBundle());
+
     }
 }

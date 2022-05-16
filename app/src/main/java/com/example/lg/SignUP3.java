@@ -1,5 +1,6 @@
 package com.example.lg;
 
+import static android.widget.Toast.LENGTH_SHORT;
 import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
 import androidx.annotation.NonNull;
@@ -34,9 +35,11 @@ public class SignUP3 extends AppCompatActivity {
     TextInputLayout Mail,password,cpassword;
     Button sub;
     FirebaseAuth mAuth=FirebaseAuth.getInstance();
+    String id=mAuth.getCurrentUser().getUid();
     String fullname,adhaar,paan,loca,gender,date,mail,passwordd,phoneNo;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     CollectionReference UserS=db.collection("UserS");
+    DocumentReference documentReference =db.collection("UserS").document(id);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +70,7 @@ public class SignUP3 extends AppCompatActivity {
                  public void onComplete(@NonNull Task<AuthResult> task) {
                      if(task.isSuccessful()){
                          storeUserData();
-                         Toast.makeText(SignUP3.this,"Sign Up Successful",Toast.LENGTH_SHORT).show();
+                         Toast.makeText(SignUP3.this,"Sign Up Successful",LENGTH_SHORT).show();
 
                          Intent intent =new Intent(getApplicationContext(),Login.class);
 
@@ -77,19 +80,15 @@ public class SignUP3 extends AppCompatActivity {
                          startActivity(intent,options.toBundle());
                      }else
                      {
-                         Toast.makeText(SignUP3.this,"Sign Up Unsuccessful:"+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                         Toast.makeText(SignUP3.this,"Sign Up Unsuccessful:"+task.getException().getMessage(),LENGTH_SHORT).show();
                      }
                  }
              });
          }
     }
 
-    private void storeUserData() {
-      /*  FirebaseDatabase rootNode=FirebaseDatabase.getInstance();
-        DatabaseReference reference=rootNode.getReference("Users");
-        userHelper newUser=new userHelper(fullname,phoneNo,mail,adhaar,paan,gender,loca,date);
-        reference.child(phoneNo).setValue(newUser);*/
-        HashMap<String,Object> map=new HashMap<>();
+   private void storeUserData() {
+      HashMap<String,Object> map=new HashMap<>();
         map.put("Username",fullname);
         map.put("PhoneNumber",phoneNo);
         map.put("adhar",adhaar);
@@ -113,8 +112,39 @@ public class SignUP3 extends AppCompatActivity {
 
 
     }
+   /* private  void storeUserData(){
+        HashMap<String,Object> map=new HashMap<>();
+        map.put("Username",fullname);
+        map.put("PhoneNumber",phoneNo);
+        map.put("adhar",adhaar);
+        map.put("dob",date);
+        map.put("gender",gender);
+        map.put("location",loca);
+        map.put("mail",mail);
+        map.put("pan",paan);
+        documentReference.set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
 
-    private boolean validateEmail(){
+            }
+        });
+
+    }*/
+   /* private void storeUserData(){
+        HashMap<String,Object> map=new HashMap<>();
+        map.put("Username",fullname);
+        map.put("PhoneNumber",phoneNo);
+        map.put("adhar",adhaar);
+        map.put("dob",date);
+        map.put("gender",gender);
+        map.put("location",loca);
+        map.put("mail",mail);
+        map.put("pan",paan);
+
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        UserS.document(uid).set(map)
+    }
+*/    private boolean validateEmail(){
         String val=Mail.getEditText().getText().toString().trim();
         String checkEmail="[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         if(val.isEmpty()){
