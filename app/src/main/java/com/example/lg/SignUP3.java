@@ -62,33 +62,33 @@ public class SignUP3 extends AppCompatActivity {
         mail=Mail.getEditText().getText().toString();
         passwordd=password.getEditText().getText().toString();
 
-         if(!validateEmail() | !validatePassword() |!validateCPassword()){
-             return;
-         }else{
-             mAuth.createUserWithEmailAndPassword(mail,passwordd).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                 @Override
-                 public void onComplete(@NonNull Task<AuthResult> task) {
-                     if(task.isSuccessful()){
-                         storeUserData();
-                         Toast.makeText(SignUP3.this,"Sign Up Successful",LENGTH_SHORT).show();
+        if(!validateEmail() | !validatePassword() |!validateCPassword()){
+            return;
+        }else{
+            mAuth.createUserWithEmailAndPassword(mail,passwordd).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if(task.isSuccessful()){
+                        storeUserData();
+                        Toast.makeText(SignUP3.this,"Sign Up Successful",LENGTH_SHORT).show();
 
-                         Intent intent =new Intent(getApplicationContext(),Login.class);
+                        Intent intent =new Intent(getApplicationContext(),Login.class);
 
-                         Pair[] pairs =new Pair[1];
-                         pairs[0]=new Pair<View,String>(findViewById(R.id.signupNAME),"transition_login");
-                         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SignUP3.this, pairs);
-                         startActivity(intent,options.toBundle());
-                     }else
-                     {
-                         Toast.makeText(SignUP3.this,"Sign Up Unsuccessful:"+task.getException().getMessage(),LENGTH_SHORT).show();
-                     }
-                 }
-             });
-         }
+                        Pair[] pairs =new Pair[1];
+                        pairs[0]=new Pair<View,String>(findViewById(R.id.signupNAME),"transition_login");
+                        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SignUP3.this, pairs);
+                        startActivity(intent,options.toBundle());
+                    }else
+                    {
+                        Toast.makeText(SignUP3.this,"Sign Up Unsuccessful:"+task.getException().getMessage(),LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
     }
 
-   private void storeUserData() {
-      HashMap<String,Object> map=new HashMap<>();
+    private void storeUserData() {
+        HashMap<String,Object> map=new HashMap<>();
         map.put("Username",fullname);
         map.put("PhoneNumber",phoneNo);
         map.put("adhar",adhaar);
@@ -103,48 +103,16 @@ public class SignUP3 extends AppCompatActivity {
                 Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
             }
         }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "Error adding document", e);
-                    }
-
-        });
-
-
-    }
-   /* private  void storeUserData(){
-        HashMap<String,Object> map=new HashMap<>();
-        map.put("Username",fullname);
-        map.put("PhoneNumber",phoneNo);
-        map.put("adhar",adhaar);
-        map.put("dob",date);
-        map.put("gender",gender);
-        map.put("location",loca);
-        map.put("mail",mail);
-        map.put("pan",paan);
-        documentReference.set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
-            public void onSuccess(Void unused) {
-
+            public void onFailure(@NonNull Exception e) {
+                Log.w(TAG, "Error adding document", e);
             }
+
         });
 
-    }*/
-   /* private void storeUserData(){
-        HashMap<String,Object> map=new HashMap<>();
-        map.put("Username",fullname);
-        map.put("PhoneNumber",phoneNo);
-        map.put("adhar",adhaar);
-        map.put("dob",date);
-        map.put("gender",gender);
-        map.put("location",loca);
-        map.put("mail",mail);
-        map.put("pan",paan);
 
-        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        UserS.document(uid).set(map)
     }
-*/    private boolean validateEmail(){
+    private boolean validateEmail(){
         String val=Mail.getEditText().getText().toString().trim();
         String checkEmail="[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         if(val.isEmpty()){

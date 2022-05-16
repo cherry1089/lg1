@@ -29,6 +29,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -107,6 +108,7 @@ public class host extends AppCompatActivity {
         map.put("vtype",svtype);
         /*HashMap<Long,Object> map2=new HashMap<Long, Object>();
         map2.put("fairPerHour",sfairperhour);*/
+     //   FirebaseDatabase.getInstance().getReference().child("HostedV").child(load_type_v).updateChildren(map);
 
         HostedV.add(map).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override

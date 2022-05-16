@@ -36,7 +36,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
-public class home extends AppCompatActivity {
+public class home extends AppCompatActivity  {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
@@ -44,7 +44,7 @@ public class home extends AppCompatActivity {
     ArrayList<HostedV> hostedVArrayList;
     MyAdapter myAdapter;
     ProgressDialog progressDialog;
-
+  Button bi;
 
 
 
@@ -64,9 +64,21 @@ public class home extends AppCompatActivity {
          hostedVArrayList =new ArrayList<HostedV>();
          myAdapter =new MyAdapter(home.this,hostedVArrayList);
           recyclerView.setAdapter(myAdapter);
+          myAdapter.setOnItemClickListener(new MyAdapter.onItemClickListener() {
+              @Override
+              public void onDeleteClick(int position) {
+
+                  removeItem(position);
+              }
+          });
        getData();
 
     }
+    public void removeItem(int position){
+        hostedVArrayList.remove(position);
+        myAdapter.notifyItemRemoved(position);
+    }
+
 
     private void getData() {
         db.collection("HostedV")

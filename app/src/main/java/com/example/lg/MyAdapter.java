@@ -26,6 +26,14 @@ import java.util.ArrayList;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     Context context;
     ArrayList<HostedV> hostedVArrayList;
+    private onItemClickListener mlistener;
+    public interface onItemClickListener{
+        void onDeleteClick(int position);
+    }
+    public void setOnItemClickListener(onItemClickListener listener){
+        mlistener=listener;
+    }
+
 
     public MyAdapter(Context context,ArrayList<HostedV> hostedVArrayList) {
         this.context = context;
@@ -38,7 +46,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
          View v= LayoutInflater.from(context).inflate(R.layout.hostedve,parent ,false);
 
 
-        return new MyViewHolder(v);
+        return new MyViewHolder(v,mlistener);
     }
 
     @Override
@@ -68,7 +76,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         Button bi;
 
 
-       public MyViewHolder(@NonNull View itemView) {
+       public MyViewHolder(@NonNull View itemView,onItemClickListener listener) {
            super(itemView);
            vtype = itemView.findViewById(R.id.vehicleType);
            brandModel = itemView.findViewById(R.id.BrandModel);
@@ -82,6 +90,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
            bi.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View view) {
+                   if(listener!=null){
+                       int position=getAdapterPosition();
+                       if(position!= RecyclerView.NO_POSITION)
+                       {
+                           listener.onDeleteClick(position);
+                       }
+                   }
 
                }
            });
