@@ -18,6 +18,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Editable;
 import android.util.Log;
 import android.util.Pair;
 import android.view.View;
@@ -39,15 +40,24 @@ import java.util.HashMap;
 
 public class host extends AppCompatActivity {
     TextInputLayout username,vtype,bmodel,locati,seat,pnumber,fairperhour,rno;
-    String susername,svtype,sbmodel,slocati,sseat,spnumber,sfairperhour,srno;
+    String susername;
+    String svtype;
+    String sbmodel;
+    String slocati;
+    String sseat;
+    String spnumber;
+    String sfairperhour;
+    int fpdi,spnumberi,sseati;
+   // String srno;
     Button bu;
    /* ImageView imageView;
   int PHOTO_GET_CODE=1234;
    Uri photoUri;*/
 
-   /* FirebaseFirestore db = FirebaseFirestore.getInstance();
-    CollectionReference HostedV=db.collection("HostedV");*/
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    CollectionReference Hosted=db.collection("HostedV");
     FirebaseAuth mAuth;
+
 
 
     @Override
@@ -55,30 +65,25 @@ public class host extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.host);
-        username=findViewById(R.id.username);
-        vtype=findViewById(R.id.vtype);
-        bmodel=findViewById(R.id.bmodel);
+        username=findViewById(R.id.username1);
+        vtype=findViewById(R.id.vtype1);
+        bmodel=findViewById(R.id.bmodel1);
         locati=findViewById(R.id.loccc);
         seat=findViewById(R.id.seate);
-        fairperhour=findViewById(R.id.fpd);
-        rno=findViewById(R.id.rnoo);
-        pnumber=findViewById(R.id.pnumber);
+        fairperhour=findViewById(R.id.fpd1);
+       // rno=findViewById(R.id.rnoo);
+        pnumber=findViewById(R.id.pnumber1);
        // imageView=findViewById(R.id.imageview2);
+
+     //   srno=rno.getEditText().getText().toString();
 
 
        // ho.findViewById(R.id.uploadimage);
-        bu=findViewById(R.id.buu);
+      /*  bu=findViewById(R.id.buu);
           bu.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View view) {
-                  susername=username.getEditText().getText().toString();
-                  svtype=vtype.getEditText().getText().toString();
-                  sbmodel=bmodel.getEditText().getText().toString();
-                  slocati=locati.getEditText().getText().toString();
-                  sseat=seat.getEditText().getText().toString();
-                  sfairperhour=fairperhour.getEditText().getText().toString();
-                  spnumber=pnumber.getEditText().getText().toString();
-                  srno=rno.getEditText().getText().toString();
+
                   HashMap<String,Object> map=new HashMap<>();
                   map.put("brandModel",sbmodel);
                   map.put("location",slocati);
@@ -92,7 +97,7 @@ public class host extends AppCompatActivity {
                   startActivity(new Intent(host.this, home.class));
 
               }
-          });
+          });*/
 
 
     }
@@ -110,21 +115,30 @@ public class host extends AppCompatActivity {
         }
     }*/
 
-   /* public void callSaveHostingData(View view) {
-
+    public void callSaveHostingData(View view) {
+        susername=username.getEditText().getText().toString();
+        svtype=vtype.getEditText().getText().toString();
+        sbmodel=bmodel.getEditText().getText().toString();
+        slocati=locati.getEditText().getText().toString();
+        sseat=seat.getEditText().getText().toString();
+        sfairperhour=fairperhour.getEditText().getText().toString();
+        spnumber=pnumber.getEditText().getText().toString();
+        fpdi=Integer.parseInt(sfairperhour);
+        spnumberi=Integer.parseInt(spnumber);
+        sseati=Integer.parseInt(sseat);
         HashMap<String,Object> map=new HashMap<>();
         map.put("brandModel",sbmodel);
         map.put("location",slocati);
-        map.put("fairPerHour",sfairperhour);
-        map.put("pnumber",spnumber);
-        map.put("rno",srno);
-        map.put("seater",sseat);
+        map.put("fairPerHour",fpdi);
+        map.put("pnumber",spnumberi);
+       // map.put("rno",srno);
+        map.put("seater",sseati);
         map.put("username",susername);
         map.put("vtype",svtype);
 
      //   FirebaseDatabase.getInstance().getReference().child("HostedV").child(load_type_v).updateChildren(map);
 
-       *//* HostedV.add(map).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+        Hosted.add(map).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
             public void onSuccess(DocumentReference documentReference) {
                 Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
@@ -135,14 +149,11 @@ public class host extends AppCompatActivity {
             public void onFailure(@NonNull Exception e) {
                 Log.w(TAG, "Error adding document", e);
             }
-        });*//*
-        Intent intent =new Intent(getApplicationContext(),hostinghistory.class);
-        Pair[] pairs =new Pair[1];
-        pairs[0]=new Pair<View,String>(findViewById(R.id.Signup_new_user),"hostingHistory");
-        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(host.this,pairs);
-        startActivity(intent,options.toBundle());
+        });
+        startActivity(new Intent(host.this, home.class));
 
 
 
-    }*/
+
+    }
 }
