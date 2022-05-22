@@ -8,6 +8,7 @@ public class HostedV {
     public String location;
   //  public String image;
     public String username;
+    public String rno;
     public  long pnumber;
     public  long seater;
    // public String fairPerHour;
@@ -18,16 +19,15 @@ public class HostedV {
 
     }
 
-    public HostedV(String vtype,String brandModel,String location,long fairPerHour,long seater,String username,long pnumber) {
+    public HostedV(long fairPerHour,String vtype,String brandModel,String location,String username,String rno,long pnumber,long seater) {
+        this.fairPerHour = fairPerHour;
         this.vtype = vtype;
         this.brandModel = brandModel;
         this.location = location;
-        //this.image = image;
-        this.fairPerHour = fairPerHour;
+        this.username = username;
+        this.rno = rno;
+        this.pnumber = pnumber;
         this.seater = seater;
-        this.username=username;
-        this.pnumber=pnumber;
-
     }
 
     public String getVtype() {
@@ -61,6 +61,14 @@ public class HostedV {
     public void setImage(String image) {
         this.image = image;
     }*/
+
+    public String getRno() {
+        return rno;
+    }
+
+    public void setRno(String rno) {
+        this.rno = rno;
+    }
 
     public long getFairPerHour() {
         return fairPerHour;

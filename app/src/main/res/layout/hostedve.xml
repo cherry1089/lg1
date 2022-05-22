@@ -169,7 +169,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="232dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <ImageView
@@ -178,6 +178,32 @@
                     android:layout_height="180dp"
                     android:layout_gravity="start"
                     android:src="@drawable/car" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="3dp"
+                        android:fontFamily="@font/chewy"
+                        android:paddingBottom="5dp"
+                        android:text="Rnumber"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/rno1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:fontFamily="@font/chewy"
+                        android:paddingBottom="5dp"
+                        android:text="1234"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
 
                 <Button
                     android:id="@+id/biq"

@@ -24,6 +24,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.common.collect.ImmutableList;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -33,8 +34,11 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.SetOptions;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class home extends AppCompatActivity  {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -45,6 +49,10 @@ public class home extends AppCompatActivity  {
     MyAdapter myAdapter;
     ProgressDialog progressDialog;
   Button bi;
+    FirebaseAuth mAuth;
+    //  String currentUserId = mAuth.getCurrentUser().getUid();
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    String uid;
 
 
 
@@ -75,13 +83,22 @@ public class home extends AppCompatActivity  {
 
     }
     public void removeItem(int position){
+        if(user!=null){
+            uid = user.getUid();
+        }
         hostedVArrayList.remove(position);
         myAdapter.notifyItemRemoved(position);
+        // Update one field, creating the document if it does not already exist.
+
+        db.collection("HostedV").document(uid)
+                .update("Rented",true);
+
+
     }
 
 
     private void getData() {
-        db.collection("HostedV")
+        db.collection("HostedV").whereEqualTo("Rented",false)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value,@Nullable FirebaseFirestoreException error) {

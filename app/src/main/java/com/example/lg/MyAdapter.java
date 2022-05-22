@@ -56,7 +56,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
           holder.brandModel.setText(hostedV.brandModel);
           holder.location.setText(hostedV.location);
         // Glide.with(context).load(hostedV.image).into(holder.image);
-
+        holder.rno.setText(hostedV.rno);
          holder.fairPerHour.setText(String.valueOf(hostedV.fairPerHour));
       holder.seater.setText(String.valueOf(hostedV.seater));
         holder.username.setText(hostedV.username);
@@ -71,7 +71,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         return hostedVArrayList.size();
     }
   public static class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView vtype,brandModel,location,fairPerHour,seater,username,pnumber;
+        TextView vtype,brandModel,location,fairPerHour,seater,username,pnumber,rno;
       //  ImageView image;
         Button bi;
 
@@ -87,6 +87,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
            seater = itemView.findViewById(R.id.seaterNo);
            username=itemView.findViewById(R.id.owner);
            pnumber=itemView.findViewById(R.id.pno1);
+           rno=itemView.findViewById(R.id.rno1);
            bi.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View view) {

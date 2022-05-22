@@ -52,6 +52,8 @@
                 android:textColor="@color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/vtype1"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -65,6 +67,30 @@
             app:endIconTint="@color/black"
             app:hintTextColor="@color/black"
             app:startIconDrawable="@drawable/vtype">
+
+            <com.google.android.material.textfield.TextInputEditText
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/chewy"
+                android:inputType="text"
+                android:textAllCaps="false"
+                android:textColor="@color/black" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/rno1"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Registration Number"
+            app:boxStrokeColor="@color/black"
+            app:boxStrokeErrorColor="#FF3333"
+            app:boxStrokeWidthFocused="2dp"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/black"
+            app:hintTextColor="@color/black"
+            app:startIconDrawable="@drawable/rno">
 
             <com.google.android.material.textfield.TextInputEditText
 

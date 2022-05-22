@@ -31,6 +31,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
@@ -38,7 +39,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 
-public class host extends AppCompatActivity {
+public class host<user> extends AppCompatActivity {
     TextInputLayout username,vtype,bmodel,locati,seat,pnumber,fairperhour,rno;
     String susername;
     String svtype;
@@ -48,7 +49,7 @@ public class host extends AppCompatActivity {
     String spnumber;
     String sfairperhour;
     int fpdi,spnumberi,sseati;
-   // String srno;
+   String srno;
     Button bu;
    /* ImageView imageView;
   int PHOTO_GET_CODE=1234;
@@ -57,6 +58,11 @@ public class host extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     CollectionReference Hosted=db.collection("HostedV");
     FirebaseAuth mAuth;
+  //  String currentUserId = mAuth.getCurrentUser().getUid();
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+   String uid;
+
+
 
 
 
@@ -71,8 +77,9 @@ public class host extends AppCompatActivity {
         locati=findViewById(R.id.loccc);
         seat=findViewById(R.id.seate);
         fairperhour=findViewById(R.id.fpd1);
-       // rno=findViewById(R.id.rnoo);
+        rno=findViewById(R.id.rno1);
         pnumber=findViewById(R.id.pnumber1);
+
        // imageView=findViewById(R.id.imageview2);
 
      //   srno=rno.getEditText().getText().toString();
@@ -115,12 +122,13 @@ public class host extends AppCompatActivity {
         }
     }*/
 
-    public void callSaveHostingData(View view) {
+  /*  public void callSaveHostingData(View view) {
         susername=username.getEditText().getText().toString();
         svtype=vtype.getEditText().getText().toString();
         sbmodel=bmodel.getEditText().getText().toString();
         slocati=locati.getEditText().getText().toString();
         sseat=seat.getEditText().getText().toString();
+        srno=rno.getEditText().getText().toString();
         sfairperhour=fairperhour.getEditText().getText().toString();
         spnumber=pnumber.getEditText().getText().toString();
         fpdi=Integer.parseInt(sfairperhour);
@@ -131,7 +139,7 @@ public class host extends AppCompatActivity {
         map.put("location",slocati);
         map.put("fairPerHour",fpdi);
         map.put("pnumber",spnumberi);
-       // map.put("rno",srno);
+       map.put("rno",srno);
         map.put("seater",sseati);
         map.put("username",susername);
         map.put("vtype",svtype);
@@ -155,5 +163,52 @@ public class host extends AppCompatActivity {
 
 
 
+    }*/
+    public void callSaveHostingData(View view)
+
+    {
+     if(user!=null){
+         uid = user.getUid();
+     }
+        susername=username.getEditText().getText().toString();
+        svtype=vtype.getEditText().getText().toString();
+        sbmodel=bmodel.getEditText().getText().toString();
+        slocati=locati.getEditText().getText().toString();
+        sseat=seat.getEditText().getText().toString();
+        srno=rno.getEditText().getText().toString();
+        sfairperhour=fairperhour.getEditText().getText().toString();
+        spnumber=pnumber.getEditText().getText().toString();
+        fpdi=Integer.parseInt(sfairperhour);
+        spnumberi=Integer.parseInt(spnumber);
+        sseati=Integer.parseInt(sseat);
+        HashMap<String,Object> map=new HashMap<>();
+        map.put("brandModel",sbmodel);
+        map.put("location",slocati);
+        map.put("fairPerHour",fpdi);
+        map.put("pnumber",spnumberi);
+        map.put("rno",srno);
+        map.put("seater",sseati);
+        map.put("username",susername);
+        map.put("vtype",svtype);
+        map.put("Rented",false);
+        db.collection("HostedV").document(uid)
+                .set(map)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        //Do what you want
+                        Log.d(TAG, "DocumentSnapshot added with ID: " + uid);
+                        Toast.makeText(host.this,"Hosting Successful",Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error adding document", e);
+
+                    }
+                });
+        startActivity(new Intent(host.this, home.class));
     }
+
 }
