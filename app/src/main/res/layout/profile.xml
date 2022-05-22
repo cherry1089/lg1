@@ -16,6 +16,7 @@
            android:layout_height="match_parent"
            android:orientation="vertical">
         <Button
+            android:id="@+id/rentid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/black"
@@ -24,9 +25,11 @@
             android:text="Renting history"
             android:textColor="#D8D4D4"
             android:textSize="20dp"
+            android:transitionName="torentinghistory"
              />
 
         <Button
+            android:id="@+id/hostid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/black"

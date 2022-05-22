@@ -24,9 +24,6 @@
             android:name=".home"
             android:exported="false" />
         <activity
-            android:name=".hostvehicle"
-            android:exported="false" />
-        <activity
             android:name=".host"
             android:exported="false" />
         <activity

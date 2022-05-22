@@ -15,7 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class profile extends AppCompatActivity {
     FirebaseAuth mAuth =FirebaseAuth.getInstance();
-    Button btn;
+    Button btn,ri;
         @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,14 +34,14 @@ public class profile extends AppCompatActivity {
     public void callHostHistory(View view) {
         Intent intent =new Intent(getApplicationContext(),hostinghistory.class);
         Pair[] pairs =new Pair[1];
-        pairs[0]=new Pair<View,String>(findViewById(R.id.hb),"tohostinghistory");
+        pairs[0]=new Pair<View,String>(findViewById(R.id.hostid),"tohostinghistory");
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(profile.this,pairs);
         startActivity(intent,options.toBundle());
     }
     public void callRentHistory(View view) {
         Intent intent =new Intent(getApplicationContext(),rentinghistory.class);
         Pair[] pairs =new Pair[1];
-        pairs[0]=new Pair<View,String>(findViewById(R.id.hb),"torentinghistory");
+        pairs[0]=new Pair<View,String>(findViewById(R.id.rentid),"torentinghistory");
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(profile.this,pairs);
         startActivity(intent,options.toBundle());
 

@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/HP/AndroidStudioProjects/lg/app/src/main/res/font/chewy.xml" value="0.2765625" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/lg/app/src/main/res/layout/activity_home.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/lg/app/src/main/res/layout/activity_ls_page.xml" value="0.21784420289855072" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/lg/app/src/main/res/layout/activity_main.xml" value="0.2" />
@@ -15,6 +16,8 @@
         <entry key="..\:/Users/HP/AndroidStudioProjects/lg/app/src/main/res/layout/hostvehicle.xml" value="0.1" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/lg/app/src/main/res/layout/login.xml" value="0.16" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/lg/app/src/main/res/layout/profile.xml" value="0.25" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/lg/app/src/main/res/layout/rent.xml" value="0.24635416666666668" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/lg/app/src/main/res/layout/renth.xml" value="0.24635416666666668" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/lg/app/src/main/res/layout/rentinghistory.xml" value="0.23324275362318841" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/lg/app/src/main/res/layout/signup.xml" value="0.1" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/lg/app/src/main/res/layout/signup1.xml" value="0.264" />
