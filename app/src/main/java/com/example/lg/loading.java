@@ -9,16 +9,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.example.lg.models.RentedV;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
 
@@ -82,7 +87,31 @@ public class loading extends AppCompatActivity {
 
 // Create a query against the collection.
        // Query query = citiesRef.whereEqualTo("rno",rrno);
-          db.collection("HostedV").document().update("Rented",true);
-        startActivity(new Intent(loading.this, home.class));
+          db.collection("HostedV").whereEqualTo("rno",rrno).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+              @Override
+              public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                  if(task.isSuccessful() && !task.getResult().isEmpty()){
+                      DocumentSnapshot documentSnapshot=task.getResult().getDocuments().get(0);
+                      String documentid=documentSnapshot.getId();
+                      db.collection("HostedV").document(documentid).update("Rented",true).addOnSuccessListener(new OnSuccessListener<Void>() {
+                          @Override
+                          public void onSuccess(Void unused) {
+                              Toast.makeText(loading.this,"Successfully Rented",Toast.LENGTH_SHORT).show();
+                          }
+                      }).addOnFailureListener(new OnFailureListener() {
+                          @Override
+                          public void onFailure(@NonNull Exception e) {
+                              Toast.makeText(loading.this,"Renting Unsuccessful",Toast.LENGTH_SHORT).show();
+
+                          }
+                      });
+                  }else {
+                      Toast.makeText(loading.this,"Failed",Toast.LENGTH_SHORT).show();
+
+
+                  }
+              }
+          })      ;
+         startActivity(new Intent(loading.this, home.class));
     }
 }
