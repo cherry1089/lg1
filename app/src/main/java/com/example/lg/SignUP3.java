@@ -94,6 +94,13 @@ public class SignUP3 extends AppCompatActivity {
     }
 
     private void storeUserData() {
+        fullname=getIntent().getStringExtra("names");
+        adhaar=getIntent().getStringExtra("adhar");
+        paan=getIntent().getStringExtra("paaan");
+        loca=getIntent().getStringExtra("locat");
+        gender=getIntent().getStringExtra("gend");
+        date=getIntent().getStringExtra("bday");
+        phoneNo=getIntent().getStringExtra("phoneNo");
         HashMap<String,Object> map=new HashMap<>();
         map.put("Username",fullname);
         map.put("PhoneNumber",phoneNo);
