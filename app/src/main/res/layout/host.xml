@@ -267,6 +267,36 @@
                 android:textColor="@color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start Date:"
+            android:textSize="15sp"
+            android:fontFamily="@font/chewy"/>
+
+        <DatePicker
+            android:id="@+id/dp1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:datePickerMode="spinner"
+            android:calendarViewShown="false"
+            android:spinnersShown="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="End Date:"
+            android:textSize="15sp"
+            android:fontFamily="@font/chewy"/>
+
+        <DatePicker
+            android:id="@+id/dp2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:datePickerMode="spinner"
+            android:calendarViewShown="false"
+            android:spinnersShown="true"/>
+
+
 
 
 

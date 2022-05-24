@@ -12,9 +12,12 @@ import android.view.WindowManager;
 
 import com.example.lg.models.HostedV;
 import com.example.lg.models.RentedV;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
@@ -31,7 +34,7 @@ public class rentinghistory extends AppCompatActivity {
     FirebaseAuth mAuth;
     //  String currentUserId = mAuth.getCurrentUser().getUid();
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-    String uid;
+    String  uid = user.getUid();
 
 
     @Override
@@ -49,8 +52,19 @@ public class rentinghistory extends AppCompatActivity {
         rentedVArrayList =new ArrayList<RentedV>();
         myRentAdapter=new MyRentAdapter(rentinghistory.this,rentedVArrayList);
         recyclerView.setAdapter(myRentAdapter);
+        storeData();
         getRentData();
 
+    }
+
+    private void storeData() {
+        DocumentReference docRef = db.collection("HostedV").document("BJ");
+        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+
+            }
+        });
     }
 
     private void getRentData() {

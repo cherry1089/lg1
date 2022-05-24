@@ -1,5 +1,7 @@
 package com.example.lg.models;
 
+import com.google.firebase.firestore.DocumentId;
+
 public class HostedV {
 
    public  long fairPerHour;
@@ -15,12 +17,16 @@ public class HostedV {
    // public String fairPerHour;
    // public String pnumber;
   //  public String seater;
+    public String sdate;
+    public String edate;
+
+    private String docID;
 
     public HostedV() {
 
     }
 
-    public HostedV(long fairPerHour,String vtype,String brandModel,String location,String username,String rno,long pnumber,long seater,String mail) {
+    public HostedV(long fairPerHour,String vtype,String brandModel,String location,String username,String rno,long pnumber,long seater,String mail,String sdate,String edate) {
         this.fairPerHour = fairPerHour;
         this.vtype = vtype;
         this.brandModel = brandModel;
@@ -30,6 +36,9 @@ public class HostedV {
         this.pnumber = pnumber;
         this.seater = seater;
         this.mail = mail;
+        this.sdate = sdate;
+        this.edate = edate;
+
     }
 
     public String getVtype() {
@@ -110,6 +119,29 @@ public class HostedV {
 
     public void setMail(String mail) {
         this.mail = mail;
+    }
+
+    public String getSdate() {
+        return sdate;
+    }
+
+    public void setSdate(String sdate) {
+        this.sdate = sdate;
+    }
+
+    public String getEdate() {
+        return edate;
+    }
+
+    public void setEdate(String edate) {
+        this.edate = edate;
+    }
+
+ ;
+
+    @DocumentId
+    public String getDocID() {
+        return docID;
     }
 }
 

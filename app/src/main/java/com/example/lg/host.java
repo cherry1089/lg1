@@ -24,6 +24,7 @@ import android.util.Pair;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -51,12 +52,13 @@ public class host<user> extends AppCompatActivity {
     int fpdi,spnumberi,sseati;
    String srno;
     Button bu;
+    DatePicker dp1,dp2;
    /* ImageView imageView;
   int PHOTO_GET_CODE=1234;
    Uri photoUri;*/
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-   // CollectionReference Hosted=db.collection("HostedV");
+   CollectionReference Hosted=db.collection("HostedV");
     FirebaseAuth mAuth;
   //  String currentUserId = mAuth.getCurrentUser().getUid();
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -80,6 +82,9 @@ public class host<user> extends AppCompatActivity {
         fairperhour=findViewById(R.id.fpd1);
         rno=findViewById(R.id.rno1);
         pnumber=findViewById(R.id.pnumber1);
+        dp1=findViewById(R.id.dp1);
+        dp2=findViewById(R.id.dp2);
+
 
        // imageView=findViewById(R.id.imageview2);
 
@@ -144,6 +149,38 @@ public class host<user> extends AppCompatActivity {
         map.put("seater",sseati);
         map.put("username",susername);
         map.put("vtype",svtype);
+         susername=username.getEditText().getText().toString();
+        svtype=vtype.getEditText().getText().toString();
+        sbmodel=bmodel.getEditText().getText().toString();
+        slocati=locati.getEditText().getText().toString();
+        sseat=seat.getEditText().getText().toString();
+        srno=rno.getEditText().getText().toString();
+        sfairperhour=fairperhour.getEditText().getText().toString();
+        spnumber=pnumber.getEditText().getText().toString();
+        fpdi=Integer.parseInt(sfairperhour);
+        spnumberi=Integer.parseInt(spnumber);
+        sseati=Integer.parseInt(sseat);
+        int day=dp1.getDayOfMonth();
+        int month=dp1.getMonth();
+        int year=dp1.getYear();
+        String Sdate=day+"/"+month+"/"+year;
+        int day1=dp2.getDayOfMonth();
+        int month1=dp2.getMonth();
+        int year1=dp2.getYear();
+        String Edate=day1+"/"+month1+"/"+year1;
+        HashMap<String,Object> map=new HashMap<>();
+        map.put("brandModel",sbmodel);
+        map.put("location",slocati);
+        map.put("fairPerHour",fpdi);
+        map.put("pnumber",spnumberi);
+        map.put("rno",srno);
+        map.put("seater",sseati);
+        map.put("username",susername);
+        map.put("vtype",svtype);
+        map.put("Rented",false);
+        map.put("mail",umail);
+        map.put("Sdate",Sdate);
+        map.put("Edate",Edate);
 
      //   FirebaseDatabase.getInstance().getReference().child("HostedV").child(load_type_v).updateChildren(map);
 
@@ -165,6 +202,7 @@ public class host<user> extends AppCompatActivity {
 
 
     }*/
+/*
     public void callSaveHostingData(View view)
 
     {
@@ -182,6 +220,14 @@ public class host<user> extends AppCompatActivity {
         fpdi=Integer.parseInt(sfairperhour);
         spnumberi=Integer.parseInt(spnumber);
         sseati=Integer.parseInt(sseat);
+        int day=dp1.getDayOfMonth();
+        int month=dp1.getMonth();
+        int year=dp1.getYear();
+        String Sdate=day+"/"+month+"/"+year;
+        int day1=dp2.getDayOfMonth();
+        int month1=dp2.getMonth();
+        int year1=dp2.getYear();
+        String Edate=day1+"/"+month1+"/"+year1;
         HashMap<String,Object> map=new HashMap<>();
         map.put("brandModel",sbmodel);
         map.put("location",slocati);
@@ -193,6 +239,8 @@ public class host<user> extends AppCompatActivity {
         map.put("vtype",svtype);
         map.put("Rented",false);
         map.put("mail",umail);
+        map.put("Sdate",Sdate);
+        map.put("Edate",Edate);
         db.collection("HostedV").document(uid)
                 .set(map)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -210,6 +258,54 @@ public class host<user> extends AppCompatActivity {
 
                     }
                 });
+        startActivity(new Intent(host.this, home.class));
+    }
+*/
+    public void callSaveHostingData(View view){
+        susername=username.getEditText().getText().toString();
+        svtype=vtype.getEditText().getText().toString();
+        sbmodel=bmodel.getEditText().getText().toString();
+        slocati=locati.getEditText().getText().toString();
+        sseat=seat.getEditText().getText().toString();
+        srno=rno.getEditText().getText().toString();
+        sfairperhour=fairperhour.getEditText().getText().toString();
+        spnumber=pnumber.getEditText().getText().toString();
+        fpdi=Integer.parseInt(sfairperhour);
+        spnumberi=Integer.parseInt(spnumber);
+        sseati=Integer.parseInt(sseat);
+        int day=dp1.getDayOfMonth();
+        int month=dp1.getMonth();
+        int year=dp1.getYear();
+        String Sdate=day+"/"+month+"/"+year;
+        int day1=dp2.getDayOfMonth();
+        int month1=dp2.getMonth();
+        int year1=dp2.getYear();
+        String Edate=day1+"/"+month1+"/"+year1;
+        HashMap<String,Object> map=new HashMap<>();
+        map.put("brandModel",sbmodel);
+        map.put("location",slocati);
+        map.put("fairPerHour",fpdi);
+        map.put("pnumber",spnumberi);
+        map.put("rno",srno);
+        map.put("seater",sseati);
+        map.put("username",susername);
+        map.put("vtype",svtype);
+        map.put("Rented",false);
+        map.put("mail",umail);
+        map.put("sdate",Sdate);
+        map.put("edate",Edate);
+        Hosted.add(map).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+            @Override
+            public void onSuccess(DocumentReference documentReference) {
+                Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.w(TAG, "Error adding document", e);
+            }
+
+        });
         startActivity(new Intent(host.this, home.class));
     }
 

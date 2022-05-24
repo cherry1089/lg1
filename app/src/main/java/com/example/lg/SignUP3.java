@@ -43,7 +43,7 @@ public class SignUP3 extends AppCompatActivity {
    // DocumentReference documentReference =db.collection("UserS").document(id);
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     String uid;
-  //  String umail=user.getEmail();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,20 +53,14 @@ public class SignUP3 extends AppCompatActivity {
         password=findViewById(R.id.pwd);
         cpassword=findViewById(R.id.pwd1);
         sub=findViewById(R.id.signupNAME);
-        fullname=getIntent().getStringExtra("names");
+      /*  fullname=getIntent().getStringExtra("names");
         adhaar=getIntent().getStringExtra("adhar");
         paan=getIntent().getStringExtra("paaan");
         loca=getIntent().getStringExtra("locat");
         gender=getIntent().getStringExtra("gend");
         date=getIntent().getStringExtra("bday");
-        phoneNo=getIntent().getStringExtra("phoneNo");
-        fullname=getIntent().getStringExtra("names");
-        adhaar=getIntent().getStringExtra("adhar");
-        paan=getIntent().getStringExtra("paaan");
-        loca=getIntent().getStringExtra("locat");
-        gender=getIntent().getStringExtra("gend");
-        date=getIntent().getStringExtra("bday");
-        phoneNo=getIntent().getStringExtra("phoneNo");
+        phoneNo=getIntent().getStringExtra("phoneNo");*/
+
     }
     public void call_login(View view){
 
@@ -80,7 +74,7 @@ public class SignUP3 extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
-                        storeUserData();
+
                         Toast.makeText(SignUP3.this,"Sign Up Successful",LENGTH_SHORT).show();
 
                         Intent intent =new Intent(getApplicationContext(),Login.class);
@@ -89,6 +83,7 @@ public class SignUP3 extends AppCompatActivity {
                         pairs[0]=new Pair<View,String>(findViewById(R.id.signupNAME),"transition_login");
                         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SignUP3.this, pairs);
                         startActivity(intent,options.toBundle());
+                        storeUserData();
                     }else
                     {
                         Toast.makeText(SignUP3.this,"Sign Up Unsuccessful:"+task.getException().getMessage(),LENGTH_SHORT).show();
@@ -123,47 +118,45 @@ public class SignUP3 extends AppCompatActivity {
 
 
     }
-  /*  public void storeUserData(){
-        if(user!=null){
-            uid = user.getUid();
-        }
-        fullname=getIntent().getStringExtra("names");
-        adhaar=getIntent().getStringExtra("adhar");
-        paan=getIntent().getStringExtra("paaan");
-        loca=getIntent().getStringExtra("locat");
-        gender=getIntent().getStringExtra("gend");
-        date=getIntent().getStringExtra("bday");
-        phoneNo=getIntent().getStringExtra("phoneNo");
-        mail=Mail.getEditText().getText().toString();
-        passwordd=password.getEditText().getText().toString();
-        HashMap<String,Object> map=new HashMap<>();
-        map.put("Username",fullname);
-        map.put("PhoneNumber",phoneNo);
-        map.put("adhar",adhaar);
-        map.put("dob",date);
-        map.put("gender",gender);
-        map.put("location",loca);
-        map.put("mail",mail);
-        map.put("pan",paan);
-        db.collection("UserS").document(uid)
-                .set(map)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        //Do what you want
-                        Log.d(TAG, "DocumentSnapshot added with ID: " + uid);
-                        Toast.makeText(SignUP3.this,"Hosting Successful",Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "Error adding document", e);
-
-                    }
-                });
-
-    }*/
+//   public void storeUserData(){
+//       String umaill=user.getEmail();
+//        fullname=getIntent().getStringExtra("names");
+//        adhaar=getIntent().getStringExtra("adhar");
+//        paan=getIntent().getStringExtra("paaan");
+//        loca=getIntent().getStringExtra("locat");
+//        gender=getIntent().getStringExtra("gend");
+//        date=getIntent().getStringExtra("bday");
+//        phoneNo=getIntent().getStringExtra("phoneNo");
+//        mail=Mail.getEditText().getText().toString();
+//        passwordd=password.getEditText().getText().toString();
+//        HashMap<String,Object> map=new HashMap<>();
+//        map.put("Username",fullname);
+//        map.put("PhoneNumber",phoneNo);
+//        map.put("adhar",adhaar);
+//        map.put("dob",date);
+//        map.put("gender",gender);
+//        map.put("location",loca);
+//        map.put("mail",mail);
+//        map.put("pan",paan);
+//        db.collection("UserS").document(umaill)
+//                .set(map)
+//                .addOnSuccessListener(new OnSuccessListener<Void>() {
+//                    @Override
+//                    public void onSuccess(Void aVoid) {
+//                        //Do what you want
+//                        Log.d(TAG, "DocumentSnapshot added with ID: " + uid);
+//                        Toast.makeText(SignUP3.this,"Hosting Successful",Toast.LENGTH_SHORT).show();
+//                    }
+//                })
+//                .addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        Log.w(TAG, "Error adding document", e);
+//
+//                    }
+//                });
+//
+//    }
     private boolean validateEmail(){
         String val=Mail.getEditText().getText().toString().trim();
         String checkEmail="[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";

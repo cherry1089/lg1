@@ -52,7 +52,8 @@ public class home extends AppCompatActivity  {
     FirebaseAuth mAuth;
     //  String currentUserId = mAuth.getCurrentUser().getUid();
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-    String uid;
+    String uid1;
+    String umail=user.getEmail();
 
 
 
@@ -73,25 +74,30 @@ public class home extends AppCompatActivity  {
          myAdapter =new MyAdapter(home.this,hostedVArrayList);
           recyclerView.setAdapter(myAdapter);
           myAdapter.setOnItemClickListener(new MyAdapter.onItemClickListener() {
+
+
+
+
               @Override
               public void onDeleteClick(int position) {
 
                   removeItem(position);
               }
           });
+
        getData();
 
     }
     public void removeItem(int position){
         if(user!=null){
-            uid = user.getUid();
+            uid1 = user.getUid();
         }
         hostedVArrayList.remove(position);
         myAdapter.notifyItemRemoved(position);
         // Update one field, creating the document if it does not already exist.
 
-        db.collection("HostedV").document(uid)
-                .update("Rented",true);
+        //db.collection("HostedV").whereEqualTo("rns",rno)
+
 
 
     }
