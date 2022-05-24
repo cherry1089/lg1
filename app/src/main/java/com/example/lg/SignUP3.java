@@ -23,6 +23,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.CollectionReference;
@@ -35,11 +36,14 @@ public class SignUP3 extends AppCompatActivity {
     TextInputLayout Mail,password,cpassword;
     Button sub;
     FirebaseAuth mAuth=FirebaseAuth.getInstance();
-    String id=mAuth.getCurrentUser().getUid();
+    //String id=mAuth.getCurrentUser().getUid();
     String fullname,adhaar,paan,loca,gender,date,mail,passwordd,phoneNo;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     CollectionReference UserS=db.collection("UserS");
-    DocumentReference documentReference =db.collection("UserS").document(id);
+   // DocumentReference documentReference =db.collection("UserS").document(id);
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    String uid;
+  //  String umail=user.getEmail();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +53,13 @@ public class SignUP3 extends AppCompatActivity {
         password=findViewById(R.id.pwd);
         cpassword=findViewById(R.id.pwd1);
         sub=findViewById(R.id.signupNAME);
+        fullname=getIntent().getStringExtra("names");
+        adhaar=getIntent().getStringExtra("adhar");
+        paan=getIntent().getStringExtra("paaan");
+        loca=getIntent().getStringExtra("locat");
+        gender=getIntent().getStringExtra("gend");
+        date=getIntent().getStringExtra("bday");
+        phoneNo=getIntent().getStringExtra("phoneNo");
         fullname=getIntent().getStringExtra("names");
         adhaar=getIntent().getStringExtra("adhar");
         paan=getIntent().getStringExtra("paaan");
@@ -112,6 +123,47 @@ public class SignUP3 extends AppCompatActivity {
 
 
     }
+  /*  public void storeUserData(){
+        if(user!=null){
+            uid = user.getUid();
+        }
+        fullname=getIntent().getStringExtra("names");
+        adhaar=getIntent().getStringExtra("adhar");
+        paan=getIntent().getStringExtra("paaan");
+        loca=getIntent().getStringExtra("locat");
+        gender=getIntent().getStringExtra("gend");
+        date=getIntent().getStringExtra("bday");
+        phoneNo=getIntent().getStringExtra("phoneNo");
+        mail=Mail.getEditText().getText().toString();
+        passwordd=password.getEditText().getText().toString();
+        HashMap<String,Object> map=new HashMap<>();
+        map.put("Username",fullname);
+        map.put("PhoneNumber",phoneNo);
+        map.put("adhar",adhaar);
+        map.put("dob",date);
+        map.put("gender",gender);
+        map.put("location",loca);
+        map.put("mail",mail);
+        map.put("pan",paan);
+        db.collection("UserS").document(uid)
+                .set(map)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        //Do what you want
+                        Log.d(TAG, "DocumentSnapshot added with ID: " + uid);
+                        Toast.makeText(SignUP3.this,"Hosting Successful",Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error adding document", e);
+
+                    }
+                });
+
+    }*/
     private boolean validateEmail(){
         String val=Mail.getEditText().getText().toString().trim();
         String checkEmail="[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";

@@ -47,6 +47,7 @@ public class MyRentAdapter extends RecyclerView.Adapter<MyRentAdapter.MyViewHold
         holder.vtype.setText(rentedV.vtype);
         holder.brandModel.setText(rentedV.brandModel);
         holder.location.setText(rentedV.location);
+        holder.mail.setText(rentedV.mail);
         // Glide.with(context).load(hostedV.image).into(holder.image);
         holder.rno.setText(rentedV.rno);
         holder.fairPerHour.setText(String.valueOf(rentedV.fairPerHour));
@@ -64,7 +65,7 @@ public class MyRentAdapter extends RecyclerView.Adapter<MyRentAdapter.MyViewHold
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView vtype, brandModel, location, fairPerHour, seater, username, pnumber, rno;
+        TextView vtype, brandModel, location, fairPerHour, seater, username, pnumber, rno,mail;
         //  ImageView image;
 
 
@@ -79,6 +80,7 @@ public class MyRentAdapter extends RecyclerView.Adapter<MyRentAdapter.MyViewHold
             username = itemView.findViewById(R.id.owner1);
             pnumber = itemView.findViewById(R.id.pno11);
             rno = itemView.findViewById(R.id.rno11);
+            mail=itemView.findViewById(R.id.mail2);
 
         }
 

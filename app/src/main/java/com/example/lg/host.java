@@ -56,11 +56,12 @@ public class host<user> extends AppCompatActivity {
    Uri photoUri;*/
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-    CollectionReference Hosted=db.collection("HostedV");
+   // CollectionReference Hosted=db.collection("HostedV");
     FirebaseAuth mAuth;
   //  String currentUserId = mAuth.getCurrentUser().getUid();
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
    String uid;
+   String umail=user.getEmail();
 
 
 
@@ -191,6 +192,7 @@ public class host<user> extends AppCompatActivity {
         map.put("username",susername);
         map.put("vtype",svtype);
         map.put("Rented",false);
+        map.put("mail",umail);
         db.collection("HostedV").document(uid)
                 .set(map)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {

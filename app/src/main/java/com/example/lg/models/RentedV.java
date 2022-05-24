@@ -10,11 +10,12 @@ public class RentedV {
     public String rno;
     public  long pnumber;
     public  long seater;
+    public String mail;
 
     public RentedV() {
     }
 
-    public RentedV(long fairPerHour,String vtype,String brandModel,String location,String username,String rno,long pnumber,long seater) {
+    public RentedV(long fairPerHour,String vtype,String brandModel,String location,String username,String rno,long pnumber,long seater,String mail) {
         this.fairPerHour = fairPerHour;
         this.vtype = vtype;
         this.brandModel = brandModel;
@@ -23,6 +24,7 @@ public class RentedV {
         this.rno = rno;
         this.pnumber = pnumber;
         this.seater = seater;
+        this.mail = mail;
     }
 
     public long getFairPerHour() {
@@ -87,5 +89,13 @@ public class RentedV {
 
     public void setSeater(long seater) {
         this.seater = seater;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 }

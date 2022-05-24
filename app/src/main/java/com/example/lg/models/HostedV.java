@@ -11,6 +11,7 @@ public class HostedV {
     public String rno;
     public  long pnumber;
     public  long seater;
+    public  String mail;
    // public String fairPerHour;
    // public String pnumber;
   //  public String seater;
@@ -19,7 +20,7 @@ public class HostedV {
 
     }
 
-    public HostedV(long fairPerHour,String vtype,String brandModel,String location,String username,String rno,long pnumber,long seater) {
+    public HostedV(long fairPerHour,String vtype,String brandModel,String location,String username,String rno,long pnumber,long seater,String mail) {
         this.fairPerHour = fairPerHour;
         this.vtype = vtype;
         this.brandModel = brandModel;
@@ -28,6 +29,7 @@ public class HostedV {
         this.rno = rno;
         this.pnumber = pnumber;
         this.seater = seater;
+        this.mail = mail;
     }
 
     public String getVtype() {
@@ -102,6 +104,12 @@ public class HostedV {
         this.username = username;
     }
 
+    public String getMail() {
+        return mail;
+    }
 
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
 }
 
