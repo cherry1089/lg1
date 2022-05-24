@@ -19,14 +19,15 @@ public class HostedV {
   //  public String seater;
     public String sdate;
     public String edate;
+    public String renter;
 
-    private String docID;
+
 
     public HostedV() {
 
     }
 
-    public HostedV(long fairPerHour,String vtype,String brandModel,String location,String username,String rno,long pnumber,long seater,String mail,String sdate,String edate) {
+    public HostedV(long fairPerHour,String vtype,String brandModel,String location,String username,String rno,long pnumber,long seater,String mail,String sdate,String edate,String renter) {
         this.fairPerHour = fairPerHour;
         this.vtype = vtype;
         this.brandModel = brandModel;
@@ -38,7 +39,7 @@ public class HostedV {
         this.mail = mail;
         this.sdate = sdate;
         this.edate = edate;
-
+        this.renter = renter;
     }
 
     public String getVtype() {
@@ -137,11 +138,12 @@ public class HostedV {
         this.edate = edate;
     }
 
- ;
+    public String getRenter() {
+        return renter;
+    }
 
-    @DocumentId
-    public String getDocID() {
-        return docID;
+    public void setRenter(String renter) {
+        this.renter = renter;
     }
 }
 

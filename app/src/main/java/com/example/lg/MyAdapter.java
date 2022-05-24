@@ -65,6 +65,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
            public void onClick(View v) {
 
 
+
                Intent intent=new Intent(context,loading.class);
                intent.putExtra("vtype1",hostedV.vtype);
                intent.putExtra("brandModel1",hostedV.brandModel);

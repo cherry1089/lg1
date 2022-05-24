@@ -176,6 +176,7 @@ public class host<user> extends AppCompatActivity {
         int day1=dp2.getDayOfMonth();
         int month1=dp2.getMonth();
         int year1=dp2.getYear();
+        String None="No One Yet";
         String Edate=day1+"/"+month1+"/"+year1;
         HashMap<String,Object> map=new HashMap<>();
         map.put("brandModel",sbmodel);
@@ -190,6 +191,7 @@ public class host<user> extends AppCompatActivity {
         map.put("mail",umail);
         map.put("sdate",Sdate);
         map.put("edate",Edate);
+        map.put("renter",None);
         Hosted.add(map).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
             public void onSuccess(DocumentReference documentReference) {

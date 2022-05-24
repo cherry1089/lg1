@@ -105,6 +105,18 @@ public class loading extends AppCompatActivity {
 
                           }
                       });
+                      db.collection("HostedV").document(documentid).update("renter",umail).addOnSuccessListener(new OnSuccessListener<Void>() {
+                          @Override
+                          public void onSuccess(Void unused) {
+                              Toast.makeText(loading.this,"Successfully Rented",Toast.LENGTH_SHORT).show();
+                          }
+                      }).addOnFailureListener(new OnFailureListener() {
+                          @Override
+                          public void onFailure(@NonNull Exception e) {
+                              Toast.makeText(loading.this,"Renting Unsuccessful",Toast.LENGTH_SHORT).show();
+
+                          }
+                      });
                   }else {
                       Toast.makeText(loading.this,"Failed",Toast.LENGTH_SHORT).show();
 
@@ -112,6 +124,7 @@ public class loading extends AppCompatActivity {
                   }
               }
           })      ;
-         startActivity(new Intent(loading.this, home.class));
+
+         startActivity(new Intent(loading.this, rentinghistory.class));
     }
 }

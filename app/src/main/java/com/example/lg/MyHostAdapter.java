@@ -44,6 +44,7 @@ public class MyHostAdapter extends RecyclerView.Adapter<MyHostAdapter.MyViewHold
         holder.pnumber.setText(String.valueOf(hostedV.pnumber));
         holder.sdate.setText(hostedV.sdate);
         holder.edate.setText(hostedV.edate);
+        holder.renter.setText(hostedV.renter);
     }
 
     @Override
@@ -52,7 +53,7 @@ public class MyHostAdapter extends RecyclerView.Adapter<MyHostAdapter.MyViewHold
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView vtype,brandModel,location,fairPerHour,seater,rno,mail,sdate,edate,username,pnumber;
+        TextView vtype,brandModel,location,fairPerHour,seater,rno,mail,sdate,edate,username,pnumber,renter;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             vtype = itemView.findViewById(R.id.vehicleType1);
@@ -67,6 +68,7 @@ public class MyHostAdapter extends RecyclerView.Adapter<MyHostAdapter.MyViewHold
             mail=itemView.findViewById(R.id.mail2);
             sdate=itemView.findViewById(R.id.sdate1);
             edate=itemView.findViewById(R.id.edate1);
+            renter=itemView.findViewById(R.id.renter);
         }
     }
 }

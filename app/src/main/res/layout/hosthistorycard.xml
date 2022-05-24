@@ -172,7 +172,7 @@
                 <ImageView
                     android:id="@+id/hostedImage1"
                     android:layout_width="match_parent"
-                    android:layout_height="180dp"
+                    android:layout_height="185dp"
                     android:layout_gravity="start"
                     android:src="@drawable/car" />
 
@@ -200,16 +200,17 @@
                         android:paddingBottom="5dp"
                         android:text="1234"
                         android:textSize="15sp" />
-                    <TextView
-                        android:id="@+id/pno2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="5dp"
-                        android:fontFamily="@font/amaranth"
-                        android:paddingBottom="5dp"
-                        android:text="@string/_59532535"
-                        android:textSize="15sp" />
                 </LinearLayout>
+                <TextView
+                    android:id="@+id/pno2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/amaranth"
+                    android:paddingBottom="5dp"
+                    android:text="@string/_59532535"
+                    android:textSize="15sp" />
+
 
 
 
@@ -219,6 +220,27 @@
 
 
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rented By(mailId):"
+                android:fontFamily="@font/amaranth"
+                android:textSize="15sp"/>
+            <TextView
+                android:id="@+id/renter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="sample@gmail.com"
+                android:textSize="20sp"
+                android:fontFamily="@font/amaranth"/>
+        </LinearLayout>
+
+
 
 
     </LinearLayout>
