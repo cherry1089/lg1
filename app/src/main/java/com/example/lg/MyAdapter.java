@@ -1,6 +1,7 @@
 package com.example.lg;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lg.models.HostedV;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
+
 
 import java.util.ArrayList;
 
@@ -60,6 +60,27 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
        holder.pnumber.setText(String.valueOf(hostedV.pnumber));
        holder.sdate.setText(hostedV.sdate);
        holder.edate.setText(hostedV.edate);
+       holder.bi.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+
+
+               Intent intent=new Intent(context,loading.class);
+               intent.putExtra("vtype1",hostedV.vtype);
+               intent.putExtra("brandModel1",hostedV.brandModel);
+               intent.putExtra("location1",hostedV.location);
+               intent.putExtra("rno1",hostedV.rno);
+               intent.putExtra("mail1",hostedV.mail);
+               intent.putExtra("fairPerHour1",hostedV.fairPerHour);
+               intent.putExtra("seater1",hostedV.seater);
+               intent.putExtra("username1",hostedV.username);
+               intent.putExtra("pnumber1",hostedV.pnumber);
+               intent.putExtra("sdate1",hostedV.sdate);
+               intent.putExtra("edate1",hostedV.edate);
+               context.startActivity(intent);
+
+           }
+       });
 
 
     }
@@ -92,6 +113,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
            mail=itemView.findViewById(R.id.mail1);
            sdate=itemView.findViewById(R.id.sdate);
            edate=itemView.findViewById(R.id.edate);
+           int position=getAdapterPosition();
 
            bi.setOnClickListener(new View.OnClickListener() {
                @Override
@@ -99,8 +121,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
                    if(listener!=null){
 
-                       int position=getAdapterPosition();
-                       if(position!= RecyclerView.NO_POSITION)
+                      int position=getAdapterPosition();
+                      if(position!= RecyclerView.NO_POSITION)
                        {
                            //DocumentReference ref = getItem(position).getReference();
 

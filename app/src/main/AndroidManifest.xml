@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lg">
         <activity
+            android:name=".loading"
+            android:exported="false" />
+        <activity
             android:name=".hostinghistory"
             android:exported="false" />
         <activity

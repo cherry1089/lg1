@@ -59,12 +59,12 @@ public class host<user> extends AppCompatActivity {
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
    CollectionReference Hosted=db.collection("HostedV");
+
     FirebaseAuth mAuth;
   //  String currentUserId = mAuth.getCurrentUser().getUid();
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
    String uid;
    String umail=user.getEmail();
-
 
 
 
@@ -88,120 +88,16 @@ public class host<user> extends AppCompatActivity {
 
        // imageView=findViewById(R.id.imageview2);
 
-     //   srno=rno.getEditText().getText().toString();
 
 
-       // ho.findViewById(R.id.uploadimage);
-      /*  bu=findViewById(R.id.buu);
-          bu.setOnClickListener(new View.OnClickListener() {
-              @Override
-              public void onClick(View view) {
 
-                  HashMap<String,Object> map=new HashMap<>();
-                  map.put("brandModel",sbmodel);
-                  map.put("location",slocati);
-                  map.put("fairPerHour",sfairperhour);
-                  map.put("pnumber",spnumber);
-                  map.put("rno",srno);
-                  map.put("seater",sseat);
-                  map.put("username",susername);
-                  map.put("vtype",svtype);
-                  FirebaseDatabase.getInstance().getReference().child("Hosts").child(susername).updateChildren(map);
-                  startActivity(new Intent(host.this, home.class));
-
-              }
-          });*/
 
 
     }
 
-   /* @Override
-    protected void onActivityResult(int requestCode,int resultCode,@Nullable Intent data) {
-        super.onActivityResult(requestCode,resultCode,data);
-        if(requestCode==PHOTO_GET_CODE){
-            if(resultCode== Activity.RESULT_OK){
-                         photoUri = data.getData();
-                        imageView.setImageURI(photoUri);
-                }else {
-                Toast.makeText(host.this,"Image Picker Action Canceled",Toast.LENGTH_SHORT).show();
-            }
-        }
-    }*/
-
-  /*  public void callSaveHostingData(View view) {
-        susername=username.getEditText().getText().toString();
-        svtype=vtype.getEditText().getText().toString();
-        sbmodel=bmodel.getEditText().getText().toString();
-        slocati=locati.getEditText().getText().toString();
-        sseat=seat.getEditText().getText().toString();
-        srno=rno.getEditText().getText().toString();
-        sfairperhour=fairperhour.getEditText().getText().toString();
-        spnumber=pnumber.getEditText().getText().toString();
-        fpdi=Integer.parseInt(sfairperhour);
-        spnumberi=Integer.parseInt(spnumber);
-        sseati=Integer.parseInt(sseat);
-        HashMap<String,Object> map=new HashMap<>();
-        map.put("brandModel",sbmodel);
-        map.put("location",slocati);
-        map.put("fairPerHour",fpdi);
-        map.put("pnumber",spnumberi);
-       map.put("rno",srno);
-        map.put("seater",sseati);
-        map.put("username",susername);
-        map.put("vtype",svtype);
-         susername=username.getEditText().getText().toString();
-        svtype=vtype.getEditText().getText().toString();
-        sbmodel=bmodel.getEditText().getText().toString();
-        slocati=locati.getEditText().getText().toString();
-        sseat=seat.getEditText().getText().toString();
-        srno=rno.getEditText().getText().toString();
-        sfairperhour=fairperhour.getEditText().getText().toString();
-        spnumber=pnumber.getEditText().getText().toString();
-        fpdi=Integer.parseInt(sfairperhour);
-        spnumberi=Integer.parseInt(spnumber);
-        sseati=Integer.parseInt(sseat);
-        int day=dp1.getDayOfMonth();
-        int month=dp1.getMonth();
-        int year=dp1.getYear();
-        String Sdate=day+"/"+month+"/"+year;
-        int day1=dp2.getDayOfMonth();
-        int month1=dp2.getMonth();
-        int year1=dp2.getYear();
-        String Edate=day1+"/"+month1+"/"+year1;
-        HashMap<String,Object> map=new HashMap<>();
-        map.put("brandModel",sbmodel);
-        map.put("location",slocati);
-        map.put("fairPerHour",fpdi);
-        map.put("pnumber",spnumberi);
-        map.put("rno",srno);
-        map.put("seater",sseati);
-        map.put("username",susername);
-        map.put("vtype",svtype);
-        map.put("Rented",false);
-        map.put("mail",umail);
-        map.put("Sdate",Sdate);
-        map.put("Edate",Edate);
-
-     //   FirebaseDatabase.getInstance().getReference().child("HostedV").child(load_type_v).updateChildren(map);
-
-        Hosted.add(map).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-            @Override
-            public void onSuccess(DocumentReference documentReference) {
-                Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-                Toast.makeText(host.this,"Hosting Successful",Toast.LENGTH_SHORT).show();
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.w(TAG, "Error adding document", e);
-            }
-        });
-        startActivity(new Intent(host.this, home.class));
 
 
 
-
-    }*/
 /*
     public void callSaveHostingData(View view)
 

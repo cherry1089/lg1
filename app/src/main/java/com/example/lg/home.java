@@ -20,6 +20,7 @@ import android.widget.Button;
 
 import com.example.lg.models.HostedV;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.common.collect.ImmutableList;
@@ -27,6 +28,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -52,9 +54,11 @@ public class home extends AppCompatActivity  {
     FirebaseAuth mAuth;
     //  String currentUserId = mAuth.getCurrentUser().getUid();
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+   // CollectionReference cr=db.collection("rent");
     String uid1;
     String umail=user.getEmail();
-
+    //String rusername,rpnumber,rrno,rseater,rsdate,redate,rfaiPerHour,rlocation,rmail,rvtpe,rbrandModel;
 
 
     @Override
@@ -62,6 +66,7 @@ public class home extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.home);
+
         progressDialog=new ProgressDialog(this);
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Fetching data..");
@@ -86,6 +91,7 @@ public class home extends AppCompatActivity  {
           });
 
        getData();
+
 
     }
     public void removeItem(int position){

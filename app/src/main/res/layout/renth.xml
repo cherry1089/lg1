@@ -209,6 +209,34 @@
                         android:text="1234"
                         android:textSize="15sp" />
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/sdate2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1/1/1111"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/amaranth"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:fontFamily="@font/amaranth"
+                        android:textSize="20sp"
+                        />
+                    <TextView
+                        android:id="@+id/edate2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2/2/2222"
+                        android:fontFamily="@font/amaranth"
+                        android:textSize="20sp"
+                        />
+                </LinearLayout>
 
 
 

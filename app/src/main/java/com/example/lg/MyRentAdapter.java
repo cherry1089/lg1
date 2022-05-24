@@ -54,6 +54,8 @@ public class MyRentAdapter extends RecyclerView.Adapter<MyRentAdapter.MyViewHold
         holder.seater.setText(String.valueOf(rentedV.seater));
         holder.username.setText(rentedV.username);
         holder.pnumber.setText(String.valueOf(rentedV.pnumber));
+        holder.sdate.setText(rentedV.sdate);
+        holder.edate.setText(rentedV.edate);
 
 
     }
@@ -65,7 +67,7 @@ public class MyRentAdapter extends RecyclerView.Adapter<MyRentAdapter.MyViewHold
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView vtype, brandModel, location, fairPerHour, seater, username, pnumber, rno,mail;
+        TextView vtype, brandModel, location, fairPerHour, seater, username, pnumber, rno,mail,sdate,edate;
         //  ImageView image;
 
 
@@ -81,6 +83,8 @@ public class MyRentAdapter extends RecyclerView.Adapter<MyRentAdapter.MyViewHold
             pnumber = itemView.findViewById(R.id.pno11);
             rno = itemView.findViewById(R.id.rno11);
             mail=itemView.findViewById(R.id.mail2);
+            sdate=itemView.findViewById(R.id.sdate2);
+            edate=itemView.findViewById(R.id.edate2);
 
         }
 

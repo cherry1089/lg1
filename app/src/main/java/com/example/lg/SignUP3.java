@@ -76,22 +76,20 @@ public class SignUP3 extends AppCompatActivity {
                     if(task.isSuccessful()){
 
                         Toast.makeText(SignUP3.this,"Sign Up Successful",LENGTH_SHORT).show();
-
-                        Intent intent =new Intent(getApplicationContext(),Login.class);
-
-                        Pair[] pairs =new Pair[1];
-                        pairs[0]=new Pair<View,String>(findViewById(R.id.signupNAME),"transition_login");
-                        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SignUP3.this, pairs);
-                        startActivity(intent,options.toBundle());
                         storeUserData();
+                        startActivity(new Intent(SignUP3.this, Login.class));
+
+
                     }else
                     {
                         Toast.makeText(SignUP3.this,"Sign Up Unsuccessful:"+task.getException().getMessage(),LENGTH_SHORT).show();
                     }
                 }
             });
+
         }
     }
+
 
     private void storeUserData() {
         fullname=getIntent().getStringExtra("names");
@@ -110,6 +108,7 @@ public class SignUP3 extends AppCompatActivity {
         map.put("location",loca);
         map.put("mail",mail);
         map.put("pan",paan);
+
         UserS.add(map).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
             public void onSuccess(DocumentReference documentReference) {
@@ -125,45 +124,90 @@ public class SignUP3 extends AppCompatActivity {
 
 
     }
-//   public void storeUserData(){
-//       String umaill=user.getEmail();
-//        fullname=getIntent().getStringExtra("names");
-//        adhaar=getIntent().getStringExtra("adhar");
-//        paan=getIntent().getStringExtra("paaan");
-//        loca=getIntent().getStringExtra("locat");
-//        gender=getIntent().getStringExtra("gend");
-//        date=getIntent().getStringExtra("bday");
-//        phoneNo=getIntent().getStringExtra("phoneNo");
-//        mail=Mail.getEditText().getText().toString();
-//        passwordd=password.getEditText().getText().toString();
-//        HashMap<String,Object> map=new HashMap<>();
-//        map.put("Username",fullname);
-//        map.put("PhoneNumber",phoneNo);
-//        map.put("adhar",adhaar);
-//        map.put("dob",date);
-//        map.put("gender",gender);
-//        map.put("location",loca);
-//        map.put("mail",mail);
-//        map.put("pan",paan);
-//        db.collection("UserS").document(umaill)
-//                .set(map)
-//                .addOnSuccessListener(new OnSuccessListener<Void>() {
-//                    @Override
-//                    public void onSuccess(Void aVoid) {
-//                        //Do what you want
-//                        Log.d(TAG, "DocumentSnapshot added with ID: " + uid);
-//                        Toast.makeText(SignUP3.this,"Hosting Successful",Toast.LENGTH_SHORT).show();
-//                    }
-//                })
-//                .addOnFailureListener(new OnFailureListener() {
-//                    @Override
-//                    public void onFailure(@NonNull Exception e) {
-//                        Log.w(TAG, "Error adding document", e);
-//
-//                    }
-//                });
-//
-//    }
+
+ /* public void storeUserData(){
+       String umaill=user.getEmail();
+       *//* fullname=getIntent().getStringExtra("names");
+        adhaar=getIntent().getStringExtra("adhar");
+        paan=getIntent().getStringExtra("paaan");
+        loca=getIntent().getStringExtra("locat");
+        gender=getIntent().getStringExtra("gend");
+        date=getIntent().getStringExtra("bday");
+       phoneNo=getIntent().getStringExtra("phoneNo");*//*
+        mail=Mail.getEditText().getText().toString();
+        passwordd=password.getEditText().getText().toString();
+        HashMap<String,Object> map=new HashMap<>();
+       *//* map.put("Username",fullname);
+       map.put("PhoneNumber",phoneNo);
+        map.put("adhar",adhaar);
+        map.put("dob",date);
+        map.put("gender",gender);
+        map.put("location",loca);*//*
+        map.put("mail",mail);
+        map.put("password",passwordd);
+        //map.put("pan",paan);
+                db.collection("UsersS").document(mail)
+                .set(map)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                                        public void onSuccess(Void aVoid) {
+      //Do what you want
+                        Log.d(TAG, "DocumentSnapshot added with ID: " + uid);
+                        Toast.makeText(SignUP3.this,"Hosting Successful",Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                                                Log.w(TAG, "Error adding document", e);
+                    }
+
+
+                });
+
+   }*/
+   /* public void storeUserData()
+
+    {
+String email=user.getEmail();
+       fullname=getIntent().getStringExtra("names");
+        adhaar=getIntent().getStringExtra("adhar");
+        paan=getIntent().getStringExtra("paaan");
+        loca=getIntent().getStringExtra("locat");
+        gender=getIntent().getStringExtra("gend");
+        date=getIntent().getStringExtra("bday");
+       phoneNo=getIntent().getStringExtra("phoneNo");
+         mail=Mail.getEditText().getText().toString();
+
+        HashMap<String,Object> map=new HashMap<>();
+        map.put("Username",fullname);
+       map.put("PhoneNumber",phoneNo);
+        map.put("adhar",adhaar);
+        map.put("dob",date);
+        map.put("gender",gender);
+        map.put("location",loca);
+        map.put("mail",mail);
+        map.put("pan",paan);
+
+        db.collection("UserS").document(email)
+                .set(map)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        //Do what you want
+                        Log.d(TAG, "DocumentSnapshot added with ID: " + email);
+                        Toast.makeText(SignUP3.this,"Hosting Successful",Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error adding document", e);
+
+                    }
+                });
+        //startActivity(new Intent(SignUP3.this, Login.class));
+    }*/
     private boolean validateEmail(){
         String val=Mail.getEditText().getText().toString().trim();
         String checkEmail="[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
