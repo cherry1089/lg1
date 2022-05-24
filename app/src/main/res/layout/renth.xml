@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#B93E3D3D"
+        android:background="#B9BAB9B9"
         android:orientation="vertical">
 
         <LinearLayout
@@ -31,7 +31,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="5dp"
-                    android:fontFamily="@font/chewy"
+                    android:fontFamily="@font/amaranth"
                     android:paddingBottom="5dp"
                     android:text="Car"
                     android:textSize="30sp" />
@@ -41,7 +41,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="3dp"
-                    android:fontFamily="@font/chewy"
+                    android:fontFamily="@font/amaranth"
                     android:paddingBottom="5dp"
                     android:text="Honda,grandi10"
                     android:textSize="20sp" />
@@ -51,7 +51,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="3dp"
-                    android:fontFamily="@font/chewy"
+                    android:fontFamily="@font/amaranth"
                     android:paddingBottom="5dp"
                     android:text="Vijayawada"
                     android:textSize="20sp" />
@@ -66,7 +66,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="3dp"
-                        android:fontFamily="@font/chewy"
+                        android:fontFamily="@font/amaranth"
                         android:paddingBottom="5dp"
                         android:text="Fpd:"
                         android:textSize="20sp" />
@@ -76,7 +76,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
-                        android:fontFamily="@font/chewy"
+                        android:fontFamily="@font/amaranth"
                         android:paddingBottom="5dp"
                         android:text="5000"
                         android:textSize="20sp" />
@@ -92,7 +92,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="3dp"
-                        android:fontFamily="@font/chewy"
+                        android:fontFamily="@font/amaranth"
                         android:paddingBottom="5dp"
                         android:text="Seater"
                         android:textSize="20sp" />
@@ -102,7 +102,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
-                        android:fontFamily="@font/chewy"
+                        android:fontFamily="@font/amaranth"
                         android:paddingBottom="5dp"
                         android:text="4"
                         android:textSize="20sp" />
@@ -118,7 +118,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="3dp"
-                        android:fontFamily="@font/chewy"
+                        android:fontFamily="@font/amaranth"
                         android:paddingBottom="5dp"
                         android:text="@string/owner"
                         android:textSize="20sp" />
@@ -128,7 +128,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
-                        android:fontFamily="@font/chewy"
+                        android:fontFamily="@font/amaranth"
                         android:paddingBottom="5dp"
                         android:text="@string/maple"
                         android:textSize="20sp" />
@@ -139,10 +139,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="3dp"
-                    android:fontFamily="@font/chewy"
-                    android:paddingBottom="3dp"
+                    android:fontFamily="@font/amaranth"
+                    android:paddingBottom="5dp"
                     android:text="mail.mail@gmail.com"
-                    android:textSize="20sp" />
+                    android:textSize="15sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -154,7 +154,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="3dp"
-                        android:fontFamily="@font/chewy"
+                        android:fontFamily="@font/amaranth"
                         android:paddingBottom="5dp"
                         android:text="@string/phone_no"
                         android:textSize="15sp" />
@@ -164,7 +164,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
-                        android:fontFamily="@font/chewy"
+                        android:fontFamily="@font/amaranth"
                         android:paddingBottom="5dp"
                         android:text="@string/_59532535"
                         android:textSize="15sp" />
@@ -194,7 +194,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="3dp"
-                        android:fontFamily="@font/chewy"
+                        android:fontFamily="@font/amaranth"
                         android:paddingBottom="5dp"
                         android:text="Rnumber"
                         android:textSize="15sp" />
@@ -204,7 +204,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
-                        android:fontFamily="@font/chewy"
+                        android:fontFamily="@font/amaranth"
                         android:paddingBottom="5dp"
                         android:text="1234"
                         android:textSize="15sp" />
