@@ -35,6 +35,7 @@ public class rentinghistory extends AppCompatActivity {
     //  String currentUserId = mAuth.getCurrentUser().getUid();
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     String  uid = user.getUid();
+    String umail=user.getEmail();
 
 
     @Override
@@ -68,7 +69,7 @@ public class rentinghistory extends AppCompatActivity {
     }
 
     private void getRentData() {
-        db.collection("RentedV")
+        db.collection("RentedV").whereEqualTo("mail",umail)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value,@Nullable FirebaseFirestoreException error) {

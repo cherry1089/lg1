@@ -68,7 +68,8 @@ public class loading extends AppCompatActivity {
         map.put("seater",seaterrr);
        // map.put("seater",rseater);
         map.put("location",rlocation);
-        map.put("mail",rmail);
+        map.put("umail",rmail);
+        map.put("mail",umail);
         map.put("sdate",rsdate);
         map.put("edate",redate);
         map.put("rno",rrno);
