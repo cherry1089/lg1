@@ -72,10 +72,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                intent.putExtra("location1",hostedV.location);
                intent.putExtra("rno1",hostedV.rno);
                intent.putExtra("mail1",hostedV.mail);
-               intent.putExtra("fairPerHour1",hostedV.fairPerHour);
-               intent.putExtra("seater1",hostedV.seater);
+               intent.putExtra("fairPerHour1",String.valueOf(hostedV.fairPerHour));
+               intent.putExtra("seater1",String.valueOf(hostedV.seater));
                intent.putExtra("username1",hostedV.username);
-               intent.putExtra("pnumber1",hostedV.pnumber);
+               intent.putExtra("pnumber1",String.valueOf(hostedV.pnumber));
                intent.putExtra("sdate1",hostedV.sdate);
                intent.putExtra("edate1",hostedV.edate);
                context.startActivity(intent);

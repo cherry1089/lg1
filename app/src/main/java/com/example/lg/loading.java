@@ -31,11 +31,12 @@ public class loading extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-    CollectionReference cr=db.collection("rent");
+    CollectionReference cr=db.collection("RentedV");
     //CollectionReference update=db.collection("hostedV").whereEqualTo();
     String uid1;
     String umail=user.getEmail();
     String rusername,rpnumber,rrno,rseater,rsdate,redate,rfaiPerHour,rlocation,rmail,rvtpe,rbrandModel;
+    int fdp1,pnumber1,seaterrr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,18 +57,23 @@ public class loading extends AppCompatActivity {
         rpnumber=getIntent().getStringExtra("pnumber1");
         rsdate=getIntent().getStringExtra("sdate1");
         redate=getIntent().getStringExtra("edate1");
+        fdp1=Integer.parseInt(rfaiPerHour);
+        pnumber1=Integer.parseInt(rpnumber);
+        seaterrr=Integer.parseInt(rseater);
         HashMap<String,Object> map=new HashMap<>();
         map.put("username",rusername);
-        map.put("pnumber",rpnumber);
+        map.put("pnumber",pnumber1);
         map.put("vtype",rvtpe);
         map.put("brandModel",rbrandModel);
-        map.put("seater",rseater);
+        map.put("seater",seaterrr);
+       // map.put("seater",rseater);
         map.put("location",rlocation);
         map.put("mail",rmail);
         map.put("sdate",rsdate);
         map.put("edate",redate);
         map.put("rno",rrno);
-        map.put("fairPerHour",rfaiPerHour);
+        map.put("fairPerHour",fdp1);
+       // map.put("fairPerHour",rfaiPerHour);
         cr.add(map).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
             public void onSuccess(DocumentReference documentReference) {
