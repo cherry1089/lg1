@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="16dp"
     android:transitionName="expandDetails"
     app:cardCornerRadius="8dp"
@@ -13,19 +12,14 @@
         android:layout_height="wrap_content"
         android:background="#B9BAB9B9"
         android:orientation="vertical">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-
-            >
-
+            android:orientation="horizontal">
             <LinearLayout
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
+               android:orientation="vertical">
                 <TextView
                     android:id="@+id/vehicleType1"
                     android:layout_width="wrap_content"
@@ -36,7 +30,6 @@
                     android:paddingBottom="5dp"
                     android:text="Car"
                     android:textSize="30sp" />
-
                 <TextView
                     android:id="@+id/BrandModel1"
                     android:layout_width="wrap_content"
@@ -46,7 +39,6 @@
                     android:paddingBottom="5dp"
                     android:text="Honda,grandi10"
                     android:textSize="20sp" />
-
                 <TextView
                     android:id="@+id/locationOfVehicle1"
                     android:layout_width="wrap_content"
@@ -56,14 +48,11 @@
                     android:paddingBottom="5dp"
                     android:text="Vijayawada"
                     android:textSize="20sp" />
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-
                     <TextView
-
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="3dp"
@@ -71,7 +60,6 @@
                         android:paddingBottom="5dp"
                         android:text="Fpd:"
                         android:textSize="20sp" />
-
                     <TextView
                         android:id="@+id/Cost1"
                         android:layout_width="wrap_content"
@@ -82,14 +70,11 @@
                         android:text="5000"
                         android:textSize="20sp" />
                 </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-
                     <TextView
-
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="3dp"
@@ -97,7 +82,6 @@
                         android:paddingBottom="5dp"
                         android:text="Seater"
                         android:textSize="20sp" />
-
                     <TextView
                         android:id="@+id/seaterNo1"
                         android:layout_width="wrap_content"
@@ -108,9 +92,6 @@
                         android:text="4"
                         android:textSize="20sp" />
                 </LinearLayout>
-
-
-
                 <TextView
                     android:id="@+id/mail2"
                     android:layout_width="wrap_content"
@@ -129,9 +110,6 @@
                     android:paddingBottom="5dp"
                     android:text="@string/maple"
                     android:textSize="15sp" />
-
-
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -140,49 +118,39 @@
                         android:id="@+id/sdate1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="1/1/1111"
-                        android:textSize="20sp"
                         android:fontFamily="@font/amaranth"
-                        />
+                        android:text="1/1/1111"
+                        android:textSize="20sp" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=" - "
                         android:fontFamily="@font/amaranth"
-                        android:textSize="20sp"
-                        />
+                        android:text=" - "
+                        android:textSize="20sp" />
                     <TextView
                         android:id="@+id/edate1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="2/2/2222"
                         android:fontFamily="@font/amaranth"
-                        android:textSize="20sp"
-                        />
+                        android:text="2/2/2222"
+                        android:textSize="20sp" />
                 </LinearLayout>
-
-
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-
                 <ImageView
                     android:id="@+id/hostedImage1"
                     android:layout_width="match_parent"
                     android:layout_height="185dp"
                     android:layout_gravity="start"
                     android:src="@drawable/car" />
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
+                   android:orientation="horizontal">
                     <TextView
-
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="3dp"
@@ -190,7 +158,6 @@
                         android:paddingBottom="5dp"
                         android:text="Rnumber"
                         android:textSize="15sp" />
-
                     <TextView
                         android:id="@+id/rno2"
                         android:layout_width="wrap_content"
@@ -210,40 +177,25 @@
                     android:paddingBottom="5dp"
                     android:text="@string/_59532535"
                     android:textSize="15sp" />
-
-
-
-
-
-
             </LinearLayout>
-
-
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rented By(mailId):"
                 android:fontFamily="@font/amaranth"
-                android:textSize="15sp"/>
+                android:text="Rented By(mailId):"
+                android:textSize="15sp" />
             <TextView
                 android:id="@+id/renter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/amaranth"
                 android:text="sample@gmail.com"
-                android:textSize="20sp"
-                android:fontFamily="@font/amaranth"/>
+                android:textSize="20sp" />
         </LinearLayout>
-
-
-
-
-    </LinearLayout>
-
-
+   </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

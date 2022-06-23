@@ -10,8 +10,6 @@
     android:backgroundTintMode="src_atop"
     android:transitionName="transition_loginToHome"
     tools:context=".home">
-
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -19,7 +17,6 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme">
-
         <ImageButton
             android:id="@+id/pb"
             android:layout_width="wrap_content"
@@ -28,7 +25,6 @@
             android:onClick="callProfile"
             android:src="@drawable/profile"
             android:transitionName="toProfile" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -37,7 +33,6 @@
             android:text="@string/welcome"
             android:textColor="#E3DCDC"
             android:textSize="24sp" />
-
         <ImageButton
             android:id="@+id/hb"
             android:layout_width="wrap_content"
@@ -46,20 +41,11 @@
             android:onClick="callHost"
             android:src="@drawable/host"
             android:transitionName="toHosting" />
-
-
     </androidx.appcompat.widget.Toolbar>
-
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-       android:layout_marginTop="50dp"
+       android:layout_marginTop="70dp"
         android:id="@+id/recycleview"
         />
-
-
-
-
-
-
 </RelativeLayout>

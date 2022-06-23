@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".loading"
     android:background="@drawable/ls_page_background">
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,6 +14,6 @@
         android:text="Loading"
         android:textSize="40sp"
         tools:layout_editor_absoluteX="106dp"
-        tools:layout_editor_absoluteY="196dp" />
-
+        tools:layout_editor_absoluteY="196dp"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>

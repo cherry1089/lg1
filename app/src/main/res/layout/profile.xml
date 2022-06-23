@@ -9,12 +9,30 @@
     android:background="@drawable/ls_page_background"
     android:backgroundTint="#9A000000"
     android:backgroundTintMode="src_atop"
-
     >
        <LinearLayout
            android:layout_width="match_parent"
            android:layout_height="match_parent"
            android:orientation="vertical">
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:orientation="vertical">
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Hello! "
+               android:textSize="35dp"
+               android:layout_marginTop="50dp"
+               android:fontFamily="@font/bungee"/>
+                <TextView
+                    android:id="@+id/owner_user"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="User@gmail.com"
+               android:textSize="35dp"
+               android:fontFamily="@font/chewy"/>
+           </LinearLayout>
         <Button
             android:id="@+id/rentid"
             android:layout_width="match_parent"
@@ -25,9 +43,9 @@
             android:text="Renting history"
             android:textColor="#D8D4D4"
             android:textSize="20dp"
+            android:layout_marginTop="275dp"
             android:transitionName="torentinghistory"
              />
-
         <Button
             android:id="@+id/hostid"
             android:layout_width="match_parent"
@@ -38,20 +56,21 @@
             android:text="Hosting history"
             android:textColor="#D8D4D4"
             android:textSize="20dp"
+            android:layout_marginTop="10dp"
             android:transitionName="tohostinghistory"
             />
-
-        <Button
-            android:id="@+id/logout_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
-            android:fontFamily="@font/bungee"
-            android:onClick="call_Logout"
-            android:text="@string/logout"
-            android:textColor="@color/black"
-            android:transitionName="logout"
-            tools:ignore="MissingConstraints" />
+           <Button
+               android:id="@+id/logout_button"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="50dp"
+               android:backgroundTint="@color/white"
+               android:fontFamily="@font/bungee"
+               android:onClick="call_Logout"
+               android:text="@string/logout"
+               android:textColor="@color/black"
+               android:transitionName="logout"
+               android:layout_gravity="center"
+               tools:ignore="MissingConstraints" />
        </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,27 +1,29 @@
 package com.example.lg;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.util.Pair;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-
+import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
-
+import com.google.firebase.auth.FirebaseUser;
 public class profile extends AppCompatActivity {
     FirebaseAuth mAuth =FirebaseAuth.getInstance();
-    Button btn,ri;
+    Button btn;
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    String umail = user.getEmail();
+    TextView owner;
         @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.profile);
          btn=findViewById(R.id.logout_button);
+         owner=findViewById(R.id.owner_user);
+         owner.setText(umail);
     }
     public void call_Logout(View view) {
         mAuth.signOut();

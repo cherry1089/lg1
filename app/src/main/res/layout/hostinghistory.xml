@@ -14,13 +14,10 @@
         android:textSize="25dp"
         android:textColor="@color/black"
         android:fontFamily="@font/bungee"/>
-
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
         android:id="@+id/recycleview2"
         />
-
-
 </RelativeLayout>

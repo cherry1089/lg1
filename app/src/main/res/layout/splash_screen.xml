@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/black"
     tools:context=".Splash_Screen">
-
     <ImageView
         android:id="@+id/car_image"
         android:layout_width="0dp"
@@ -15,6 +14,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="300dp"
+        android:contentDescription="@string/car_logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -22,9 +22,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/car"
-        tools:visibility="visible"
-        android:contentDescription="@string/car_logo"/>
-
+        tools:visibility="visible" />
     <TextView
         android:id="@+id/app_Name"
         android:layout_width="wrap_content"
@@ -36,7 +34,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/car_image" />
-
     <TextView
         android:id="@+id/app_Caption"
         android:layout_width="wrap_content"
@@ -50,5 +47,4 @@
         app:layout_constraintHorizontal_bias="0.432"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/app_Name" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

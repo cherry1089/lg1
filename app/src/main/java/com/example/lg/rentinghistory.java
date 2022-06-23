@@ -1,43 +1,29 @@
 package com.example.lg;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.WindowManager;
-
-import com.example.lg.models.HostedV;
 import com.example.lg.models.RentedV;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentChange;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
-
 import java.util.ArrayList;
-
 public class rentinghistory extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     RecyclerView recyclerView;
     ArrayList<RentedV> rentedVArrayList;
     MyRentAdapter myRentAdapter;
     ProgressDialog progressDialog;
-    FirebaseAuth mAuth;
-    //  String currentUserId = mAuth.getCurrentUser().getUid();
-    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-    String  uid = user.getUid();
+     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     String umail=user.getEmail();
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,21 +39,8 @@ public class rentinghistory extends AppCompatActivity {
         rentedVArrayList =new ArrayList<RentedV>();
         myRentAdapter=new MyRentAdapter(rentinghistory.this,rentedVArrayList);
         recyclerView.setAdapter(myRentAdapter);
-        storeData();
         getRentData();
-
     }
-
-    private void storeData() {
-        DocumentReference docRef = db.collection("HostedV").document("BJ");
-        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-
-            }
-        });
-    }
-
     private void getRentData() {
         db.collection("RentedV").whereEqualTo("mail",umail)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
@@ -82,8 +55,6 @@ public class rentinghistory extends AppCompatActivity {
                         for(DocumentChange dc :value.getDocumentChanges()){
                             if(dc.getType()==DocumentChange.Type.ADDED ){
                                 rentedVArrayList.add(dc.getDocument().toObject(RentedV.class));
-
-
                             }
                             myRentAdapter.notifyDataSetChanged();
                             if(progressDialog.isShowing())
@@ -91,7 +62,5 @@ public class rentinghistory extends AppCompatActivity {
                         }
                     }
                 });
-
     }
-
 }
